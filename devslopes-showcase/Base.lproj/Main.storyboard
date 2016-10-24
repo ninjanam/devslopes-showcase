@@ -76,6 +76,9 @@
                                                 <state key="normal" title="FACEBOOK LOGIN">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="facebookBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cXJ-6c-CFr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -172,10 +175,31 @@
                             <constraint firstItem="ggb-Ij-pqm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qxc-J6-JMz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="eda-hi-Qpk" kind="show" identifier="goToFeed" id="9TR-Vp-3m8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="429"/>
+            <point key="canvasLocation" x="568" y="417"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dJK-D1-bBJ">
+            <objects>
+                <viewController id="eda-hi-Qpk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c4d-4j-rKV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xak-80-wzq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H4E-XM-mCS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.53333333329999999" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mm6-dw-Zoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1278" y="417"/>
         </scene>
     </scenes>
     <resources>
