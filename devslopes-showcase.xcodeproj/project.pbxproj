@@ -24,6 +24,7 @@
 		69B029B01DBD9D3F00D5B6E8 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69B029AC1DBD9D3F00D5B6E8 /* NotoSans-BoldItalic.ttf */; };
 		69B029B11DBD9D3F00D5B6E8 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69B029AD1DBD9D3F00D5B6E8 /* NotoSans-Italic.ttf */; };
 		69B029B21DBD9D3F00D5B6E8 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69B029AE1DBD9D3F00D5B6E8 /* NotoSans-Regular.ttf */; };
+		69B029B41DC0376700D5B6E8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B029B31DC0376700D5B6E8 /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		69B029AC1DBD9D3F00D5B6E8 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		69B029AD1DBD9D3F00D5B6E8 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
 		69B029AE1DBD9D3F00D5B6E8 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		69B029B31DC0376700D5B6E8 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		76A54DF6C19158F809ADE5C6 /* Pods-devslopes-showcase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devslopes-showcase.release.xcconfig"; path = "Pods/Target Support Files/Pods-devslopes-showcase/Pods-devslopes-showcase.release.xcconfig"; sourceTree = "<group>"; };
 		CA2576CCF1A66E787DD76766 /* Pods-devslopes-showcase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devslopes-showcase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-devslopes-showcase/Pods-devslopes-showcase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 				69B029761DB9860A00D5B6E8 /* MaterialView.swift */,
 				69B0297D1DB98A7500D5B6E8 /* MaterialButton.swift */,
 				69B0297F1DBA1BBF00D5B6E8 /* MaterialTextField.swift */,
+				69B029B31DC0376700D5B6E8 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				69B029771DB9860A00D5B6E8 /* MaterialView.swift in Sources */,
 				6925F1661DB97F23005DC07A /* SignInVC.swift in Sources */,
 				69B0298A1DBA6FAE00D5B6E8 /* FeedVC.swift in Sources */,
+				69B029B41DC0376700D5B6E8 /* PostCell.swift in Sources */,
 				6925F1641DB97F23005DC07A /* AppDelegate.swift in Sources */,
 				69B0297C1DB986C800D5B6E8 /* Constants.swift in Sources */,
 				69B0297E1DB98A7500D5B6E8 /* MaterialButton.swift in Sources */,

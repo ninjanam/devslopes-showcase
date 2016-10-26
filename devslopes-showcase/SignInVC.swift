@@ -44,8 +44,6 @@ class SignInVC: UIViewController {
             } else if result?.isCancelled == true {
                 print("User cancelled Facebook authenticaion")
             } else {
-                //let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-              //  print("Successfully logged in with facebook. \(accessToken)")
                 print("Successfully logged in with Facebook")
                 
                 let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
@@ -84,9 +82,10 @@ class SignInVC: UIViewController {
                                 self.showErrorAlert("Could not create account", msg: "Problem creating account. Try something else")
                             } else {
                                 print("New user created and authenticated in Firebase")
-                                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_ID)
                                 FIRAuth.auth()?.signInWithEmail(email, password: pwd, completion: nil)
-                                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                                if let _user = user {
+                                    self.completeSignIn(_user.uid)
+                                }
                             }
                         })
                     } else if error!.code == STATUS_WRONG_PASSWORD {
@@ -94,8 +93,9 @@ class SignInVC: UIViewController {
                     }
                 } else {
                     print("Email user successfully authenticated into Firebase")
-                    NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_ID)
-                    self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                    if let _user = user {
+                        self.completeSignIn(_user.uid)
+                    }
                 }
             })
         } else {
@@ -103,8 +103,12 @@ class SignInVC: UIViewController {
         }
     }
     
+    func completeSignIn(id: String) {
+        NSUserDefaults.standardUserDefaults().setValue(id, forKey: KEY_ID)
+        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+    }
+    
     func showErrorAlert(title: String, msg: String) {
-        
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
         let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
         alert.addAction(action)
