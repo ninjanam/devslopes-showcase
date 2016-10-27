@@ -54,6 +54,7 @@ class SignInVC: UIViewController {
         }
     }
     
+    // for use with other third-party logins like Twitter or Google
     func firebaseAuth(credential: FIRAuthCredential) {
         FIRAuth.auth()?.signInWithCredential(credential, completion: { (user, error) -> Void in
             if error != nil {
@@ -61,8 +62,10 @@ class SignInVC: UIViewController {
             } else {
                 print("Successfully authenticated with Firebase")
                 //Save new Firebase account
-                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_ID)
-                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                if let user = user {
+                    let userData = ["provider": credential.provider, "blah": "test"]
+                    self.completeSignIn(user.uid, userData: userData)
+                }
             }
         })
     }
@@ -83,8 +86,9 @@ class SignInVC: UIViewController {
                             } else {
                                 print("New user created and authenticated in Firebase")
                                 FIRAuth.auth()?.signInWithEmail(email, password: pwd, completion: nil)
-                                if let _user = user {
-                                    self.completeSignIn(_user.uid)
+                                if let user = user {
+                                    let userData = ["provider": user.providerID]
+                                    self.completeSignIn(user.uid, userData: userData)
                                 }
                             }
                         })
@@ -93,8 +97,9 @@ class SignInVC: UIViewController {
                     }
                 } else {
                     print("Email user successfully authenticated into Firebase")
-                    if let _user = user {
-                        self.completeSignIn(_user.uid)
+                    if let user = user {
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(user.uid, userData: userData)
                     }
                 }
             })
@@ -103,7 +108,8 @@ class SignInVC: UIViewController {
         }
     }
     
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirebaseDBUser(id, userData: userData)
         NSUserDefaults.standardUserDefaults().setValue(id, forKey: KEY_ID)
         self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
     }
